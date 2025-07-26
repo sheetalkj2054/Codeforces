@@ -5,7 +5,7 @@ public class DoremyPaint3 {
         Scanner sc = new Scanner(System.in);
         int t = sc.nextInt();
 
-        while (t-- > 0) {
+        while (t > 0) {
             int n = sc.nextInt();
             Map<Integer, Integer> freq = new HashMap<>();
 
@@ -17,21 +17,34 @@ public class DoremyPaint3 {
             if (freq.size() == 1) {
                 System.out.println("YES");
 
-            } else if (freq.size() == 2) {
-                Iterator<Integer> it = freq.values().iterator();
-                int c1 = it.next(), c2 = it.next();
-
-                if (n % 2 == 0) {
-                    System.out.println((c1 == n/2 && c2 == n/2) ? "YES" : "NO");
-                } else {
-                    int big = (n+1)/2, small = (n-1)/2;
-                    boolean ok = (c1 == big && c2 == small) || (c2 == big && c1 == small);
-                    System.out.println(ok ? "YES" : "NO");
+            } else if (freq.size() > 2) {
+                System.out.println("NO");
+            } else {
+                int x = -1;
+                int y = -1;
+                for(int i : freq.keySet()){
+                    if(x==-1){
+                        x = freq.get(i);
+                    }else{
+                        y = freq.get(i);
+                    }
                 }
 
-            } else {
-                System.out.println("NO");
+                if (n % 2 == 0) {
+                    if(x==y){
+                        System.out.println("YES");
+                    }else{
+                        System.out.println("NO");
+                    }
+                } else {
+                    if(Math.abs(x-y)>1){
+                        System.out.println("NO");
+                    }else{
+                        System.out.println("YES");
+                    }
+                }
             }
+            t--;
         }
 
         sc.close();
