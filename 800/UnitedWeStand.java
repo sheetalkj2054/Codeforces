@@ -38,15 +38,5 @@ public class UnitedWeStand {
  
         sc.close();
     }
-    public static boolean canDivide(int idx, int arr[]){
-        int x = arr[idx];
-        for(int i=0;i<arr.length;i++){
-            if(i==idx){
-                continue;
-            }else{
-                return arr[i]%x==0;
-            }
-        }
-        return false;
-    }
+    
 }
