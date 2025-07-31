@@ -12,27 +12,7 @@ public class UnitedWeStand {
                 a[i] = sc.nextInt();
                 min = Math.min(min,a[i]);
             }
-            ArrayList<Integer> b = new ArrayList<>();
-            ArrayList<Integer> c = new ArrayList<>();
-            for(int i : a){
-                if(i==min){
-                    b.add(i);
-                }else{
-                    c.add(i);
-                }
-            }
-            if(b.size()==0 || c.size()==0){
-                System.out.println(-1);
-            }else{
-                System.out.println(b.size() + " " + c.size());
-                for(int el : b){
-                    System.out.print(el + " ");
-                }
-                System.out.println();
-                for(int el : c){
-                    System.out.print(el + " ");
-                }
-            }
+            
             t--;
         }
  

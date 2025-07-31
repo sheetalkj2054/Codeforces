@@ -4,11 +4,9 @@ public class DontTryToCount {
         if (x == null || s == null) {
             return false;
         }
-        // empty s is always “found”
         if (s.length() == 0) {
             return true;
         }
-        // Variant A: use StringBuilder#indexOf
         return x.indexOf(s.toString()) >= 0;
     }
     public static void main(String args[]){
@@ -24,7 +22,7 @@ public class DontTryToCount {
             StringBuilder StrS = new StringBuilder(s);
             int operation = 0;
             boolean flag = false;
-            for(int i=1;i<=8;i++){
+            for(int i=1;i<=5;i++){
                 if(containsSubstring(StrX,StrS)){
                     System.out.println(operation);
                     flag = true;
