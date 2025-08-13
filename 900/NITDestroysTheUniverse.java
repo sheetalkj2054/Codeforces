@@ -6,23 +6,35 @@ public class NITDestroysTheUniverse {
         while (t > 0) {
             int n = sc.nextInt();
             int a[] = new int[n];
+            int cnt = 0;
             for(int i=0;i<n;i++){
                 a[i] = sc.nextInt();
-            }
-            int cnt = 0;
-            int i=0;
-            while(i<n){
-                if(a[i]!=0){
+                if(a[i]==0){
                     cnt++;
-                    while(i<n&&a[i]!=0){
-                        a[i]=0;
-                        i++;
-                    }
-                }else{
-                    i++;
                 }
             }
-            System.out.println(Math.min(cnt, 2));
+            int left = 0;
+            int right = n-1;
+            while(left<n&&a[left]==0){
+                left++;
+            }
+            while(right>=0&&a[right]==0){
+                right--;
+            }
+            boolean found = false;
+            for(int i=left;i<=right;i++){
+                if(a[i]==0){
+                    found = true;
+                    break;
+                }
+            }
+            if(cnt==n){
+                System.out.println(0);
+            }else if(found){
+                System.out.println(2);
+            }else{
+                System.out.println(1);
+            }
             t--;
         }
  
